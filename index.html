@@ -147,19 +147,7 @@
             position: relative;
             min-height: 500px;
         }
-        /* Disable fixed attachment on mobile devices and iOS */
-        @media (max-width: 768px) {
-            .stats-container {
-                background-attachment: scroll;
-            }
-        }
         
-        /* Specifically target iOS devices */
-        @supports (-webkit-touch-callout: none) {
-            .stats-container {
-                background-attachment: scroll;
-            }
-        }
 
         .stats-container::before {
             content: '';
@@ -170,6 +158,19 @@
             bottom: 0;
             background: rgba(0, 0, 0, 1);
             z-index: -1;
+        }
+        /* Fix for iOS devices - disable fixed attachment only on iOS */
+        @supports (-webkit-touch-callout: none) {
+            .stats-container {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Additional fix for mobile devices that have scrolling issues */
+        @media (hover: none) and (pointer: coarse) {
+            .stats-container {
+                background-attachment: scroll;
+            }
         }
 
         .stat-box {
@@ -262,6 +263,8 @@
         @media (max-width: 768px) {
             .stats-container {
                 flex-direction: column;
+                /* Keep parallax on Android, disable on iOS */
+                background-attachment: scroll;
             }
 
             .stat-box {
