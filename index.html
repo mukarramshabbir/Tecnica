@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/New Project (12).png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#333333',
+                        accent: '#f4f4f4',
+                        gold: '#D4AF37',
+                        darkGold: '#B38F28'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slideshow-container {
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide img,
+        .slide video {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* New styles for the content sections */
+        .welcome-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .welcome-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .welcome-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
+            position: relative;
+            display: inline-block;
+        }
+
+        .welcome-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #D4AF37;
+        }
+
+        .welcome-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+
+        .separator {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+            margin: 3rem 0;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            margin: 0;
+            padding: 4rem 2rem;
+            background: url('assets/videos/World map.png') center/contain;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .stats-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 1);
+            z-index: -1;
+        }
+
+        .stat-box {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 2.5rem;
+            margin: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.001);
+            backdrop-filter: blur(3px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .stat-box h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/Airplane Tech-11.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-top: 5rem;
+        }
+
+        .cta p:first-child {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+
+        .cta p:last-of-type {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta button {
+            background-color: #D4AF37;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .cta button:hover {
+            background-color: #B38F28;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .stat-box {
+                margin-bottom: 1.5rem;
+            }
+
+            .welcome-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta p:first-child {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <title>About - Tecnica Aerospace</title>
+</head>
+
+<body class="bg-white text-secondary font-sans page-transition">
+
+
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg h-auto md:h-32 top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-4 md:py-0 h-full flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center">
+                    <a href="index.html"> <img src="assets/images/eoka_copy.png" alt="Tecnica Logo"
+                            class="h-32 md:h-40">
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu"
+                class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 bg-primary md:bg-transparent">
+                <nav class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 py-4 md:py-0">
+                    <a href="index.html"
+                        class="text-gold hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            About
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="service-parts.html"
+                        class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Services
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="quality.html"
+                        class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Quality
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="contact.html"
+                        class="border-2 border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-primary transition-all duration-300 font-semibold whitespace-nowrap w-full md:w-auto text-center">Contact
+                        Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Carousel Section -->
+        <section class="pt-[16rem] h-[80h]  pb-20 md:pt-[18rem] md:pb-32 wave-container" style="background: url('assets/images/bg.png') no-repeat center center;  background-attachment: fixed;
+ background-size: cover;">
+
+
+            <div class="container mx-auto px-4 content">
+                <div class="max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-light mb-6">
+                        <span class="block">Global Aviation</span>
+                        <span class="block font-semibold text-gold">Component Support</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl mb-8 text-white">The parts you need in stock and ready to go, anywhere, anytime.
+                    </p>
+                    <a href="#"
+                        class="bg-gold hover:bg-darkGold text-primary font-semibold px-6 py-3 rounded-md inline-flex items-center transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section px-6 sm:px-6 md:px-8 lg:px-12">
+            <div
+                class="welcome-content bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 mb-12 mt-12 hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
+                <h2>Welcome to Tecnica Aerospace</h2>
+                <p class="text-xs sm:text-xl">Welcome to Tecnica Aerospace, your premier destination for cutting-edge commercial airframe materials
+                    and solutions. Based in the vibrant hub of Florida, we specialize in providing top-of-the-line
+                    components for the latest generation of aircraft from industry giants such as Boeing and Airbus.</p>
+                <p class="text-xs sm:text-xl">At Tecnica Aerospace, we're not just another supplier; we're your trusted partner in the skies. With
+                    a commitment to excellence and innovation, we ensure that every product we offer meets the highest
+                    standards of quality, reliability, and performance. Our extensive catalog boasts a diverse range of
+                    materials meticulously curated to meet the evolving needs of modern aviation.</p>
+                <p class="text-xs sm:text-xl">What sets us apart is our relentless dedication to customer satisfaction. We understand the critical
+                    importance of every component in the aerospace industry, and that's why we go above and beyond to
+                    deliver unparalleled service and support. Whether you're in need of specialized materials, technical
+                    expertise, or tailored solutions, our team of experts is here to assist you every step of the way.
+                </p>
+                <p class="text-xs sm:text-xl">Driven by a passion for aviation and a pursuit of perfection, Tecnica Aerospace is more than just a
+                    supplier—it's a partner you can trust to help you soar to new heights. Join us in shaping the future
+                    of flight, one exceptional component at a time.</p>
+            </div>
+        </section>
+        <!-- Mission Statement -->
+
+        <div class="separator"></div>
+
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-box hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 max-w-xs sm:max-w-full">
+                <h2 class="text-2xl sm:text-5xl font-semibold">
+                    <span class="count" data-target="1000" data-duration="2000">1000</span>+
+                </h2>
+                <p class="stat-title text-base sm:text-2xl font-semibold">CUSTOMERS</p>
+                <p class="stat-description text-base sm:text-xl">
+                    Approved vendor for most major operators in all continents.
+                </p>
+            </div>
+
+            <div class="stat-box hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 max-w-xs sm:max-w-full">
+                <h2 class="text-2xl sm:text-5xl font-bold">
+                    <span class="count" data-target="200000" data-duration="2500">200000</span>+
+                </h2>
+                <p class="stat-title text-base sm:text-2xl font-semibold">PARTS SOLD</p>
+                <p class="stat-description text-base sm:text-xl">
+                    Over 20 aircraft teardowns across the Boeing, Airbus, and ATR families.
+                </p>
+            </div>
+
+            <div class="stat-box hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 max-w-xs sm:max-w-full">
+                <h2 class="text-2xl sm:text-5xl font-bold">
+                    <span class="count" data-target="1000" data-duration="1500">1000</span>+
+                </h2>
+                <p class="stat-title text-base sm:text-2xl font-semibold">VENDORS</p>
+                <p class="stat-description text-base sm:text-xl">
+                    Approved vendor for most major operators in all continents.
+                </p>
+            </div>
+        </div>
+        </div>
+
+
+
+        </div>
+        <div class="px-6 sm:px-8 md:px-12 lg:px-16">
+            <section class="bg-white max-w-4xl mx-auto text-white p-8 md:p-12 py-16 mt-64 mb-64 rounded-lg border-2 border-gold shadow-[0_0_20px_rgba(255,204,0,0.5)] text-center"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/Airplane Tech-11.jpg'); background-size: cover; background-position: center;">
+        
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4 md:mb-6">Ensuring Flight Across Every Horizon</h2>
+        <p class="text-base sm:text-xl md:text-xl mb-6 md:mb-8">We are proud to provide our customers with a 24-hour AOG service.</p>
+        <button onclick="window.location.href='#contact'" 
+            class="bg-black text-gold py-3 px-8 rounded-full font-bold border-2 border-gold hover:bg-gold hover:text-black transition-colors duration-300">
+            GET IN TOUCH
+        </button>
+    
+    </section>
+        </div>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 relative px-4 sm:px-6 md:px-8 lg:px-12">
+        <div class="container mx-auto px-4">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2">
+                <img src="assets/images/eoka_copy.png" alt="Tecnica Aerospace Logo" class="h-48">
+            </div>
+            <nav class="flex justify-center space-x-8 mt-32">
+                <a href="index.html" class="hover:text-yellow-400 transition-colors">About</a>
+                <a href="service-parts.html" class="hover:text-yellow-400 transition-colors">Service & Parts</a>
+                <a href="quality.html" class="hover:text-yellow-400 transition-colors">Quality</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition-colors">Contact Us</a>
+            </nav>
+            <div class="text-center mt-8 space-y-2">
+                <p>Florida</p>
+                <p>954-695-8006</p>
+                <p>4350 NW 124th Ave</p>
+                <p>Coral Springs, FL 33065</p>
+            </div>
+            <div class="w-4/5 h-px bg-gray-700 mx-auto my-8"></div>
+            <div class="text-center">
+                © 2023 Tecnica Aerospace. <span class="font-bold">All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Auto advance slides every 5 seconds
+        setInterval(function () {
+            plusSlides(1);
+        }, 5000);
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
+        // Initialize counters when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.count');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = parseInt(counter.getAttribute('data-duration'));
+                        animateCounter(counter, target, duration);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stats-container').forEach(container => {
+            observer.observe(container);
+        });
+    </script>
+
+    <!-- Preloader script -->
+    <script src="assets/js/preloader.js"></script>
+
+    <!-- Mobile menu script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            // Add smooth transition
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.display = 'flex';
+            } else {
+                mobileMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

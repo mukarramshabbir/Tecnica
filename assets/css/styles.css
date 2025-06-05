@@ -1,0 +1,1087 @@
+body {
+    background-color: #000000;
+    padding: 10px;
+    color: #ffffff;
+    font-family: "Degular Display", Sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+*{
+    transition: all 800ms ease-in-out;
+
+}
+/* Header Styles */
+.header {
+    background: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    position: relative;
+    height: 120px;
+    width: 100%;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 170px;
+    z-index: 10;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    margin-right: 50px;
+    margin-top: 20px;
+    white-space: nowrap;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    margin-right: 400px;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+
+#contact-button {
+    white-space: nowrap;
+}
+
+.nav-buttons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Degular Display", Sans-serif;
+    font-weight: regular;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    /* Rounded corners */
+    transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-buttons a.active {
+    border-color: #FFDF00;
+    /* Blue outline on active state */
+}
+
+.content {
+    margin-top: 80px;
+    flex-grow: 1;
+}
+
+#contact-section {
+    display: none;
+    padding: 20px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+#contact-info {
+    flex: 1;
+}
+
+#contact-form {
+    flex: 1;
+    margin-left: 20px;
+}
+
+#contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#contact-form label {
+    font-size: 16px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 10px;
+    border-radius: 15px;
+    /* Adjust the value to round the corners */
+    border: 1px solid #ffffff;
+    background-color: #A9A9A9;
+    /* Set the background color */
+}
+
+#contact-form button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 300px;
+    /* Adjust this value to increase the space */
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+#get-in-touch-button {
+    background-color: #000000;
+    /* Button background color */
+    color: #ffffff;
+    /* Button text color */
+    border: 2px solid #ffd700;
+    /* Button border color */
+    padding: 15px 30px;
+    /* Adjust padding for the button size */
+    font-size: 18px;
+    /* Adjust font size for the button text */
+    cursor: pointer;
+}
+
+#contact-us-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000000;
+    /* Dark background color */
+    margin-top: -130;
+    color: #0a0a0a;
+    position: relative;
+}
+
+#contact-us-section p {
+    font-size: 18px;
+}
+
+.contact-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-image-container {
+    overflow-x: hidden;
+    /* Hide horizontal overflow for the contact image */
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    right: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    /* Adjust the text color */
+}
+
+#service-message {
+    background-color: #000000;
+    border: 2px solid #ffd700;
+    color: #ffffff;
+    padding: 60px;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 24px;
+}
+
+.logo2 {
+    max-width: 200px;
+    /* Adjust the maximum width as needed */
+    height: auto;
+    margin-left: 300px;
+}
+
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer-container {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-picture {
+    text-align: right;
+}
+
+.footer-contact {
+    text-align: left;
+    flex: 1;
+    margin-left: 1;
+    /* Adjust as needed */
+    flex-basis: 25%;
+    /* Adjust the initial size of the flex items */
+    gap: 10px;
+    /* Adjust as needed */
+}
+
+.quality-section {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.text-container {
+    text-align: center;
+    margin-right: 10px;
+    /* Adjust the right margin as needed */
+}
+
+.text-container h1 {
+    font-size: 24px;
+    /* Adjust the font size as needed */
+    margin-left: 200px;
+    font-family: 'YourCustomFont', sans-serif;
+    /* Replace 'YourCustomFont' with the actual font name or font stack */
+    margin: 0;
+    /* Remove default margin for h1 */
+    color: #fff;
+    /* Set text color */
+}
+
+.quality-image {
+    flex: 1;
+    text-align: right;
+    margin-right: 10px;
+    /* Adjust the right margin as needed */
+    margin-left: 1305px;
+    /* Adjust the left margin as needed */
+}
+
+.quality-image img {
+    border-radius: 20px;
+    height: auto;
+    /* Maintain the aspect ratio of the image */
+    width: 1000px;
+    /* Set the width of the image as needed */
+    height: 700px;
+    border: 3px solid #ffd700;
+    /* Add a 3px solid red outline */
+    box-shadow: 0 0 10px 15px rgba(255, 255, 255, 0.5);
+    /* Add a white glowy effect with larger spread radius */
+}
+
+.overlay-text2 {
+    position: absolute;
+    top: 50%;
+    right: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    font-family: "Degular Display", Sans-serif;
+    color: rgb(255, 255, 255);
+    /* Adjust the text color */
+}
+
+.service-box2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    /* Set the width as needed */
+    padding: 20px;
+    /* Add padding to the box */
+    border: 2px solid #ffd700;
+    /* Add a thin gold border */
+}
+
+.service-box2 p {
+    text-align: center;
+}
+
+.service-box2 button {
+    margin-top: 10px;
+    /* Add some space between the text and the button */
+    background-color: #000000;
+    /* Button background color */
+    color: #ffffff;
+    /* Button text color */
+    border: 2px solid #ffd700;
+    /* Button border color */
+    padding: 10px 20px;
+    /* Adjust padding for the button size */
+    cursor: pointer;
+}
+
+.contact-button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ffd700;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.contact-button span {
+    margin-left: 5px;
+}
+
+.service-box2:hover {
+    box-shadow: 0 0 10px 5px gold;
+    /* Gold glow on hover */
+}
+
+.image {
+    max-width: 80px;
+    /* Adjust the maximum width as needed */
+    margin-bottom: 10px;
+    /* Adjust the margin as needed */
+}
+
+.service-box2 {
+    position: relative;
+    text-align: center;
+    border: 2px solid white;
+    /* White outline */
+    padding: 20px;
+    /* Adjust padding as needed */
+    transition: box-shadow 0.3s;
+    /* Add transition for the glow effect */
+    margin-top: 300px;
+    /* Adjust margin to move the box down */
+    margin-left: 1000px;
+}
+
+.service-label {
+    position: absolute;
+    top: -10px;
+    /* Adjust to position above the white line */
+    left: 50%;
+    /* Place at the horizontal center of the main service box */
+    transform: translateX(-50%);
+    background-color: gold;
+    color: black;
+    padding: 5px;
+    /* Adjust padding as needed */
+    border-radius: 5px;
+    /* Adjust border radius as needed */
+}
+
+svg {
+    width: 15px;
+    /* Adjust the width of the arrow */
+    height: auto;
+    margin-left: 5px;
+    /* Add some spacing between the text and arrow */
+}
+
+.service-box2 a {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit text color */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    /* Remove the default underline */
+}
+
+a:hover {
+    text-decoration: none;
+    /* Remove underline on hover */
+}
+
+@keyframes flash {
+    0%,
+    100% {
+        border-color: rgba(255, 215, 0, 0);
+        /* Transparent border color */
+    }
+
+    50% {
+        border-color: #ffd700;
+        /* Flashing state with the desired color */
+    }
+}
+
+#service-message2 {
+    background-color: #000000;
+    border: 2px solid #ffd700;
+    color: #ffffff;
+    padding: 60px 20px;
+    /* Equal padding for top/bottom and left/right */
+    text-align: center;
+    margin-top: 500px;
+    font-size: 24px;
+}
+
+#service-message2:hover {
+    animation: none;
+    box-shadow: 0 0 20px gold;
+    /* Optional: Set a static glow on hover */
+}
+
+.additional-text-container {
+    max-width: 800px;
+    /* Adjust as needed */
+    margin: 20px auto;
+    /* Adjust margin as needed */
+    text-align: left;
+    /* Align text to the left */
+    margin-right: 800px;
+    margin-top: -300px;
+    color: #ffffff;
+    font-size: 35px;
+}
+
+.view-certificate-button button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffd700;
+    width: 250px;
+    /* Adjust width as needed */
+    padding: 15px 20px;
+    /* Adjust padding for the button size */
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    /* Adjust the value to round the corners */
+    margin-left: 220px;
+}
+
+.view-certificate-button button:hover {
+    background-color: #333333;
+    /* Adjust the color on hover as needed */
+}
+
+.overlay-text3 {
+    position: absolute;
+    top: 40%;
+    right: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    /* Adjust the text color */
+}
+
+.additional-text-container2 {
+    font-size: 25px;
+    /* Set the desired font size */
+    margin-top: 300px;
+    font-family: Lobster;
+    text-align: center;
+    /* Align text to the center */
+    max-width: 80%;
+    /* Set maximum width for the text container */
+    margin: 0 auto;
+    /* Center the text container horizontally */
+    position: relative;
+    /* Enable positioning */
+    top: 250px;
+    /* Move the text down by 50 pixels */
+    line-height: 1.5;
+}
+
+.overlay-text4 {
+    margin-top: -180px;
+    position: absolute;
+    margin-left: 300px;
+    top: 50%;
+    right: 60%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    font-family: "Degular Display", Sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+
+.overlay-text4 h2 {
+    margin: 0;
+    /* Remove default margin */
+}
+
+.quality-section2 {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+}
+
+.text-container2 {
+    text-align: left;
+    margin-top: 250px;
+    /* Adjust spacing between image and text */
+    margin-right: 900px;
+    /* Adjust left margin as needed */
+}
+
+.additional-info-box2 {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    text-align: center;
+    margin-bottom: 200pc;
+}
+
+.ribbon {
+    background-color: #ffd700;
+    color: #000000;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.ribbon::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-style: solid;
+    border-width: 10px 10px 0;
+    border-color: #ffd700 transparent transparent transparent;
+    transform: translateX(-50%);
+}
+
+.view-button {
+    margin-top: 10px;
+}
+
+.overlay-container3 {
+    position: relative;
+}
+
+.overlay-box3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent background */
+    color: #ffffff;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    z-index: 2;
+    /* Ensure the overlay box is on top of the content */
+}
+
+.service-box3 {
+    position: absolute;
+    top: 1100px;
+    left: 1300px;
+    /* Adjust the left position as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    /* Set the width as needed */
+    padding: 20px;
+    /* Add padding to the box */
+    border: 2px solid #f0f0f0;
+    /* Add a thin gold border */
+    z-index: 999;
+    /* Set a high z-index to ensure it overlays other elements */
+}
+
+.info-container {
+    animation: fade-in 0.5s forwards;
+    color: white;
+    display: none;
+    padding: 10px;
+    background-color: #050505;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.info-container ul {
+    list-style-type: disc;
+    /* Use disc for default bullet points */
+    padding-left: 20px;
+    /* Adjust the left padding as needed */
+}
+
+.info-container li {
+    margin-bottom: 5px;
+    /* Adjust the margin between list items as needed */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.dropdown-container {
+    margin-top: 45px;
+    /* Adjust the margin as needed */
+}
+
+.coming-soon {
+    top: 40px;
+    font-size: 75px;
+    white-space: nowrap;
+}
+
+.dropdown-content a {
+    font-size: 35px;
+    text-align: center;
+    display: block;
+    /* Ensure full-width text alignment */
+}
+
+.gold-line {
+    border-color: gray;
+    /* Set the desired color */
+    width: 96%;
+    /* Adjust the width as needed */
+    margin: 0 auto;
+    /* Center the line */
+    margin: 10px 0;
+    /* Adjust the top and bottom margin as needed */
+}
+
+.service-box3:hover {
+    box-shadow: 0 0 10px 5px gold;
+    /* Gold glow on hover */
+}
+
+.service-box3 svg {
+    position: absolute;
+    right: 10px;
+    /* Adjust the right value as needed */
+}
+
+.quality-text h2 {
+    font-weight: normal;
+    /* Adjust as needed */
+    font-family: 'Gilroy';
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.coming-soon {
+    animation: flash 1.5s infinite;
+    /* Adjust animation duration as needed */
+}
+
+.breadcrumb {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .nav-buttons {
+        display: none;
+    }
+
+    .coming-soon {
+        font-size: 45px;
+        top: 120%;
+        /* Adjust the top position to move the container down */
+        position: absolute;
+    }
+
+    .logo {
+        margin-left: 20px;
+        /* Adjust the margin as needed */
+        max-width: 150px;
+    }
+
+    .overlay-text {
+        margin-right: -95px;
+        font-size: 30px;
+    }
+
+    .breadcrumb {
+        display: block;
+        margin-left: -100px;
+    }
+
+    .overlay-text3 {
+        text-align: center;
+        left: 140px;
+        bottom: 300px;
+        font-size: 15px;
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+    }
+
+    .additional-text-container2 {
+        font-size: 20px;
+        /* Decrease font size for smaller screens */
+        max-width: 100%;
+        /* Adjust maximum width for smaller screens */
+        top: 100px;
+        /* Move the text down by 150 pixels on smaller screens */
+    }
+
+    #contact-info p {
+        font-size: 13px;
+        /* Default font size */
+    }
+
+    #contact-form {
+        position: absolute;
+        left: 20px;
+        /* Adjust the value as needed */
+        top: 650px;
+        /* Adjust the value as needed */
+        left: 5px;
+    }
+
+    #service-message {
+        position: relative;
+        /* Change the position to relative */
+        top: 500px;
+        /* Adjust the top value to move it down */
+        margin-bottom: 230px;
+        width: 60%;
+    }
+
+    #service-message2 {
+        position: relative;
+        /* Change the position to relative */
+        bottom: 40px;
+        width: 70%;
+    }
+
+    .breadcrumb {
+        margin-left: 600px;
+        display: none;
+        position: absolute;
+        background-color: #000000;
+        box-shadow: 0px 8px 16px 0px rgba(78, 78, 78, 0.2);
+        z-index: 1;
+        margin-top: 25px;
+    }
+
+    .breadcrumb-0 {
+        position: relative;
+        text-align: center;
+        margin: 0 20px;
+    }
+
+    .breadcrumb {
+        font-size: 8px;
+        display: block;
+    }
+
+    .dropdown {
+        margin-right: 300px;
+    }
+
+    .dropdown-content {
+        font-size: 15px;
+        /* Adjust the font size as needed */
+    }
+
+    .dropdown-content a {
+        font-size: 15px;
+        /* Adjust the font size of the links within the dropdown content */
+    }
+
+    .dropdown-content p {
+        font-size: 15px;
+        /* Adjust the font size of paragraphs within the dropdown content */
+    }
+
+    .dropdown-content {
+        display: none;
+        /* Hide by default */
+        position: absolute;
+        background-color: #000000;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        right: 265px;
+        white-space: nowrap;
+        /* Prevent line breaks */
+        top: 50px;
+        border-bottom: 1px solid goldenrod;
+        /* Add golden bottom border */
+        border-top: 1px solid goldenrod;
+        /* Add golden top border */
+    }
+
+    .dropdown-content.show {
+        display: block;
+        /* Show when the "show" class is applied */
+    }
+
+    #contact-form textarea {
+        width: 300px;
+        padding: 10px;
+        border-radius: 15px;
+        border: 1px solid #ffffff;
+        background-color: #A9A9A9;
+    }
+
+    .quality-image {
+        flex: 1;
+        text-align: center;
+        margin-right: 1300px;
+        /* Adjust the right margin as needed */
+        margin-top: 200px;
+    }
+
+    .quality-image img {
+        border-radius: 20px;
+        height: auto;
+        /* Maintain the aspect ratio of the image */
+        width: 400px;
+        /* Set the width of the image as needed */
+        height: 500px;
+        border: 3px solid #ffd700;
+        /* Add a 3px solid red outline */
+        box-shadow: 0 0 10px 15px rgba(255, 255, 255, 0.5);
+        /* Add a white glowy effect with larger spread radius */
+    }
+
+    .logo2 {
+        position: relative;
+        /* or absolute, depending on your layout */
+        left: -300px;
+        /* Adjust the value to move the logo to the left */
+        max-width: 150px;
+    }
+
+    .overlay-text4 {
+        margin-top: -180px;
+        position: absolute;
+        margin-left: 700px;
+        top: 50%;
+        right: -17%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-family: "Degular Display", Sans-serif;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .dropdown-content a {
+        font-size: 15px;
+        text-align: center;
+        display: block;
+        /* Ensure full-width text alignment */
+    }
+
+    .overlay-text2 {
+        position: absolute;
+        top: 32%;
+        right: 10%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+        /* Adjust the text color */
+    }
+
+    .service-box2 {
+        position: center;
+        text-align: center;
+        border: 2px solid white;
+        padding: 20px;
+        transition: box-shadow 0.3s;
+        margin-right: 1000px;
+        width: 200px;
+        top: 300px;
+    }
+
+    .additional-text-container {
+        max-width: 300px;
+        margin: 20px auto;
+        left: -400;
+        text-align: left;
+        white-space: nowrap;
+        margin-top: -300px;
+        color: #ffffff;
+        font-size: 20px;
+        bottom: 150px
+    }
+
+    #service-message2 {
+        background-color: #000000;
+        border: 2px solid #ffd700;
+        color: #ffffff;
+        padding: 60px 20px;
+        text-align: center;
+        margin-top: 500px;
+        font-size: 24px;
+        right: -1%;
+    }
+}
+/* Transition Layer */
+.transition-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Show animation */
+.transition-layer.show {
+    transform: scaleY(1);
+}
+
+/* Zoom + Fade animation */
+body {
+    opacity: 0;
+    transform: scale(0.97);
+    filter: blur(4px);
+    transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+body.loaded {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+/* Page Transition Styles */
+.page-transition {
+    animation: pageFadeIn 0.5s ease-in;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #D4AF37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hides the preloader smoothly */
+.preloader:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}

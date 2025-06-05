@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="assets/images/New Project (12).png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#333333',
+                        accent: '#f4f4f4',
+                        gold: '#ffcc00'
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Tecnica Aerospace - Contact Us</title>
+</head>
+<body class="bg-white text-secondary font-sans page-transition">
+    <div class="transition-layer" id="transition-layer">
+
+      
+
+    <!-- Header -->
+    <header class="bg-primary shadow-lg h-auto md:h-32 top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-4 md:py-0 h-full flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center">
+                    <a href="index.html"> <img src="assets/images/eoka_copy.png" alt="Tecnica Logo" class="h-32 md:h-40">
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 bg-primary md:bg-transparent">
+                <nav class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 py-4 md:py-0">
+                    <a href="index.html" class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            About
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="service-parts.html" class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Services
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="quality.html" class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Quality
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="contact.html" class="text-gold border-2 border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-primary transition-all duration-300 font-semibold whitespace-nowrap w-full md:w-auto text-center">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content wrapper with padding for fixed header -->
+    <div class="">
+
+    <!-- Hero Section -->
+    <div class="relative h-[400px] md:h-[600px] overflow-hidden">
+        <!-- Blurred Background Layer -->
+        <div class="absolute inset-0 z-0" style="background: url('assets/images/contact-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(10px);"></div>
+    
+        <!-- Foreground Content -->
+        <div class="absolute inset-0 flex items-center justify-center z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white text-center">Contact Us</h1>
+        </div>
+    </div>
+    
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 md:py-16 bg-white">
+        <!-- Description Section -->
+        <section class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-8 mb-8 md:mb-16">
+            <div class="prose max-w-none">
+                <p class="text-base sm:text-xl md:text-xl leading-relaxed text-center">
+                    <span class="font-bold text-xl md:text-2xl">Tecnica</span> takes great pride in offering our esteemed clientele unparalleled 24-hour Aircraft on Ground (AOG) service. As a premier aftermarket aircraft part supplier, we specialize in providing meticulously tailored rotatable spares to meet the needs of commercial, regional, and business aircraft operators. Renowned for our <span class="font-bold">unwavering commitment</span> to excellence, Tecnica upholds stringent quality standards. We are dedicated to delivering superior customer service and fostering enduring partnerships within the aviation industry.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 md:mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Get in Touch</h2>
+                <form class="space-y-4 md:space-y-6">
+                    <div class="space-y-2">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Your Name (Required)</label>
+                        <input type="text" id="name" name="name" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold focus:border-transparent">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Your Email (Required)</label>
+                        <input type="email" id="email" name="email" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold focus:border-transparent">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                        <input type="text" id="subject" name="subject" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold focus:border-transparent">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message (Required)</label>
+                        <textarea id="message" name="message" rows="5" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold focus:border-transparent"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-black text-gold py-3 px-6 rounded-full font-bold border-2 border-gold hover:bg-gold hover:text-black transition-colors duration-300">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <div class="bg-black text-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Contact Information</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-gold mb-2">Location</h3>
+                            <p >4350 NW 124th Ave</p>
+                            <p>Coral Springs, FL 33065</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-gold mb-2">Phone</h3>
+                            <p>954-695-8006</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold text-gold mb-2">24/7 AOG Service</h3>
+                            <p>Available around the clock for emergency support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 md:mt-8">
+                    <h3 class="text-lg md:text-xl font-bold text-gold mb-4">Why Choose Us?</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <span class="text-gold mr-2">✓</span>
+                            24/7 AOG Support
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-gold mr-2">✓</span>
+                            Certified Technicians
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-gold mr-2">✓</span>
+                            Quality Guaranteed
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-gold mr-2">✓</span>
+                            Fast Response Time
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-white max-w-4xl mx-auto text-white p-8 md:p-12 py-16 mt-64 mb-64 rounded-lg border-2 border-gold shadow-[0_0_20px_rgba(255,204,0,0.5)] text-center"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/Airplane Tech-11.jpg'); background-size: cover; background-position: center;">
+        
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4 md:mb-6">Ensuring Flight Across Every Horizon</h2>
+        <p class="text-base sm:text-xl md:text-xl mb-6 md:mb-8">We are proud to provide our customers with a 24-hour AOG service.</p>
+        <button onclick="window.location.href='#contact'" 
+            class="bg-black text-gold py-3 px-8 rounded-full font-bold border-2 border-gold hover:bg-gold hover:text-black transition-colors duration-300">
+            GET IN TOUCH
+        </button>
+    
+    </section>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8 md:py-12 mt-8 md:mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center mb-6 md:mb-8">
+                <img src="assets/images/eoka_copy.png" alt="Tecnica Aerospace Logo" class="h-32 md:h-48">
+            </div>
+            <nav class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8 mb-6 md:mb-8">
+                <a href="index.html" class="hover:text-gold transition-colors text-center">About</a>
+                <a href="service-parts.html" class="hover:text-gold transition-colors text-center">Service & Parts</a>
+                <a href="quality.html" class="hover:text-gold transition-colors text-center">Quality</a>
+                <a href="contact.html" class="hover:text-gold transition-colors text-center">Contact Us</a>
+            </nav>
+            <div class="text-center space-y-2 mb-6 md:mb-8">
+                <p>Florida</p>
+                <p>954-695-8006</p>
+                <p>4350 NW 124th Ave</p>
+                <p>Coral Springs, FL 33065</p>
+            </div>
+            <div class="w-4/5 h-px bg-gray-700 mx-auto mb-6 md:mb-8"></div>
+            <div class="text-center">
+                © 2023 Tecnica Aerospace. <span class="font-bold">All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <!-- Mobile menu script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            // Add smooth transition
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.display = 'flex';
+            } else {
+                mobileMenu.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Preloader script -->
+    <script src="assets/js/preloader.js"></script>
+</body>
+</html>

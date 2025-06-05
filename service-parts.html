@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/images/New Project (12).png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        secondary: '#333333',
+                        accent: '#f4f4f4',
+                        gold: '#D4AF37',
+                        darkGold: '#B38F28'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slideshow-container {
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 100px;
+            left: 50px;
+            max-width: 60%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 30px;
+            border-left: 5px solid #D4AF37;
+            z-index: 5;
+        }
+        
+        .slide-caption h2 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            color: #D4AF37;
+            font-weight: bold;
+        }
+        
+        .slide-caption p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        
+        /* Slideshow indicator dots */
+        .dot-container {
+            text-align: center;
+            width: 100%;
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active-dot, .dot:hover {
+            background-color: #D4AF37;
+        }
+        
+        /* Content section styles */
+        .service-parts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #D4AF37;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-description strong {
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .separator {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #D4AF37, transparent);
+            margin: 3rem 0;
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/Airplane Tech-28.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .cta p:first-child {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+        
+        .cta p:last-of-type {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta button {
+            background-color: #D4AF37;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta button:hover {
+            background-color: #B38F28;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta p:first-child {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-caption {
+                bottom: 70px;
+                left: 20px;
+                right: 20px;
+                max-width: calc(100% - 40px);
+                padding: 15px 20px;
+            }
+            
+            .slide-caption h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-caption p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide-caption {
+                bottom: 50px;
+                left: 15px;
+                right: 15px;
+                max-width: calc(100% - 30px);
+                padding: 12px 15px;
+            }
+            
+            .slide-caption h2 {
+                font-size: 1.5rem;
+            }
+            
+            .slide-caption p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <title>Service & Parts - Tecnica Aerospace</title>
+</head>
+
+
+<body class="bg-white text-secondary font-sans page-transition">
+
+
+      
+
+    <header class="bg-primary shadow-lg h-auto md:h-32 top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-4 md:py-0 h-full flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center">
+                    <a href="index.html"> <img src="assets/images/eoka_copy.png" alt="Tecnica Logo" class="h-32 md:h-40">
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 bg-primary md:bg-transparent">
+                <nav class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 py-4 md:py-0">
+                    <a href="index.html" class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            About
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="service-parts.html" class="text-gold hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Services
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="quality.html" class="text-white hover:text-gold transition-colors py-2 md:py-0 relative group w-full md:w-auto text-center">
+                        <span class="relative">
+                            Quality
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+                    </a>
+                    <a href="contact.html" class="border-2 border-gold text-gold px-6 py-2 rounded-full hover:bg-gold hover:text-primary transition-all duration-300 font-semibold whitespace-nowrap w-full md:w-auto text-center">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Carousel Section -->
+        <section class="relative">
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="assets/images/Airplane Tech-28.jpg" alt="Aircraft Maintenance" class="image-slide">
+                    <div class="slide-caption">
+                        <h2>Aircraft Maintenance</h2>
+                        <p>Comprehensive repair and overhaul services for aircraft components, ensuring optimal performance and reliability.</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="assets/images/Airplane Tech-11.jpg" alt="Aviation Services" class="image-slide">
+                    <div class="slide-caption">
+                        <h2>Aviation Services</h2>
+                        <p>24/7 Aircraft on Ground support with rapid response times and efficient solutions to minimize downtime.</p>
+                    </div>
+                </div>
+                <div class="slide fade">
+                    <img src="assets/images/Airplane Tech-8.jpg" alt="Technical Support" class="image-slide">
+                    <div class="slide-caption">
+                        <h2>Technical Support</h2>
+                        <p>Expert technical assistance and consultation for all your aircraft maintenance needs.</p>
+                    </div>
+                </div>
+                <!-- Navigation arrows -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </section>
+
+        <!-- Service & Parts Content -->
+        <section class="service-parts-container bg-white shadow-lg rounded-xl px-6 sm:px-8 md:px-12 py-8 mt-16 mb-10 mx-4 sm:mx-6 md:mx-auto max-w-7xl transition-all duration-300 hover:shadow-2xl">
+            <h1 class="section-title ">Service & Parts</h1>
+            <p class="section-description text-base sm:text-xl">
+                TecnicaAeroSpace exclusively works with Dixie Air Parts and AeroSpace Technical services FAA/EASA Repair stations with over
+                <strong>50+ years</strong> of quality and service for Boeing and Airbus aircrafts. For all of our repair and overhaul needs, 
+                we assure our customers of unmatched quality and support. We provide a <strong>6-month warranty</strong> for inspection and 
+                tested units and a <strong>1-year overhaul warranty</strong>.
+            </p>
+        </section>
+        
+
+        <!-- CTA Section -->
+        
+
+        <!-- Detailed Services Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-primary mb-4">Comprehensive Aviation Solutions</h2>
+                    <div class="w-24 h-1 bg-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 px-7">
+                    <!-- Services Column -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                        <h2 class="text-2xl font-bold mb-8 text-primary flex items-center">
+                            <span class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                            </span>
+                            Our Services
+                        </h2>
+                        <div class="space-y-8">
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">Component Repair & Overhaul</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">Comprehensive repair and overhaul services for aircraft components, ensuring optimal performance and reliability.</p>
+                            </div>
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">AOG Support</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">24/7 Aircraft on Ground support with rapid response times and efficient solutions to minimize downtime.</p>
+                            </div>
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">Technical Support</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">Expert technical assistance and consultation for all your aircraft maintenance needs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Parts Column -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 ">
+                        <h2 class="text-2xl font-bold mb-8 text-primary flex items-center">
+                            <span class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                            </span>
+                            Available Parts
+                        </h2>
+                        <div class="space-y-8 ">
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">Boeing Parts</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">Genuine Boeing aircraft parts with full traceability and certification.</p>
+                            </div>
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">Airbus Parts</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">Certified Airbus components meeting OEM specifications and quality standards.</p>
+                            </div>
+                            <div class="group">
+                                <h3 class="text-xl font-semibold mb-3 text-primary group-hover:text-gold transition-colors duration-300">Custom Solutions</h3>
+                                <p class="text-gray-600 leading-relaxed text-base">Tailored parts solutions for specific aircraft requirements and modifications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Assurance Section -->
+                <div class="mt-20">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-primary mb-4">Quality Assurance</h2>
+                        <div class="w-24 h-1 bg-gold mx-auto"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-7">
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-semibold mb-3 text-primary">FAA/EASA Certified</h3>
+                            <p class="text-gray-600 text-base">All repairs and parts meet or exceed regulatory requirements.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-semibold mb-3 text-primary">Documentation</h3>
+                            <p class="text-gray-600 text-base">Complete traceability and documentation for all components.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center transform hover:scale-105 transition-transform duration-300">
+                            <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-semibold mb-3 text-primary">Testing</h3>
+                            <p class="text-gray-600 text-base">Rigorous testing procedures ensuring component reliability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="px-6 sm:px-8 md:px-12 lg:px-16">
+            <section class="bg-white max-w-4xl mx-auto text-white p-8 md:p-12 py-16 mt-64 mb-64 rounded-lg border-2 border-gold shadow-[0_0_20px_rgba(255,204,0,0.5)] text-center"
+        style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/Airplane Tech-11.jpg'); background-size: cover; background-position: center;">
+        
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4 md:mb-6">Ensuring Flight Across Every Horizon</h2>
+        <p class="text-base sm:text-xl md:text-xl mb-6 md:mb-8">We are proud to provide our customers with a 24-hour AOG service.</p>
+        <button onclick="window.location.href='#contact'" 
+            class="bg-black text-gold py-3 px-8 rounded-full font-bold border-2 border-gold hover:bg-gold hover:text-black transition-colors duration-300">
+            GET IN TOUCH
+        </button>
+    
+    </section>
+        </div>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 relative">
+        <div class="container mx-auto px-4">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2">
+                <img src="assets/images/eoka_copy.png" alt="Tecnica Aerospace Logo" class="h-48">
+            </div>
+            <nav class="flex justify-center space-x-8 mt-32">
+                <a href="index.html" class="hover:text-yellow-400 transition-colors">About</a>
+                <a href="service-parts.html" class="hover:text-yellow-400 transition-colors">Service & Parts</a>
+                <a href="quality.html" class="hover:text-yellow-400 transition-colors">Quality</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition-colors">Contact Us</a>
+            </nav>
+            <div class="text-center mt-8 space-y-2">
+                <p>Florida</p>
+                <p>954-695-8006</p>
+                <p>4350 NW 124th Ave</p>
+                <p>Coral Springs, FL 33065</p>
+            </div>
+            <div class="w-4/5 h-px bg-gray-700 mx-auto my-8"></div>
+            <div class="text-center">
+                © 2023 Tecnica Aerospace. <span class="font-bold">All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active-dot", "");
+            }
+            
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active-dot";
+        }
+
+        // Auto advance slides every 5 seconds
+        setInterval(function() {
+            plusSlides(1);
+        }, 5000);
+    </script>
+
+    <!-- Preloader script -->
+    <script src="assets/js/preloader.js"></script>
+
+    <!-- Mobile menu script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            // Add smooth transition
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.display = 'flex';
+            } else {
+                mobileMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
